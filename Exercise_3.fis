@@ -1,0 +1,33 @@
+[System]
+Name='LevelControl'
+Type='mamdani'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=3
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Liquid Level'
+Range=[0 14]
+NumMFs=3
+MF1='Low':'trapmf',[0 0 1 5]
+MF2='Ok':'trimf',[1 5 9]
+MF3='High':'trapmf',[5 9 14 14]
+
+[Output1]
+Name='Valve Control'
+Range=[-30 30]
+NumMFs=3
+MF1='Close Fast ':'trapmf',[-30 -30 -10 0]
+MF2='No Change':'trimf',[-10 0 10]
+MF3='Open Fast':'trapmf',[0 10 30 30]
+
+[Rules]
+1, 3 (1) : 1
+2, 2 (1) : 1
+3, 1 (1) : 1

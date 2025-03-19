@@ -1,0 +1,66 @@
+[System]
+Name='Exercise 1'
+Type='mamdani'
+Version=2.0
+NumInputs=4
+NumOutputs=1
+NumRules=8
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Sepal Length'
+Range=[4 8]
+NumMFs=4
+MF1='Small':'trimf',[0 4 5.5]
+MF2='SmallMedium':'trimf',[4 5.5 6.75]
+MF3='MediumLarge':'trimf',[5.5 6.75 8]
+MF4='Large':'trimf',[6.75 8 10]
+
+[Input2]
+Name='Sepal Width'
+Range=[2 4.5]
+NumMFs=4
+MF1='Small':'trimf',[0 2 2.75]
+MF2='SmallMedium':'trimf',[2 2.75 3.6]
+MF3='MediumLarge':'trimf',[2.75 3.6 4.5]
+MF4='Large':'trimf',[3.6 4.5 7]
+
+[Input3]
+Name='Petal Length'
+Range=[1 7]
+NumMFs=4
+MF1='Small':'trimf',[0 1 3]
+MF2='SmallMedium':'trimf',[1 3 5]
+MF3='MediumLarge':'trimf',[3 5 7]
+MF4='Large':'trimf',[5 7 10]
+
+[Input4]
+Name='Petal Width'
+Range=[0 2.5]
+NumMFs=4
+MF1='Small':'trimf',[-1 0 0.9]
+MF2='SmallMedium':'trimf',[0 0.9 1.6]
+MF3='MediumLarge':'trimf',[0.9 1.6 2.5]
+MF4='Large':'trimf',[1.6 2.5 4]
+
+[Output1]
+Name='output1'
+Range=[0 4]
+NumMFs=3
+MF1='Setosa':'trimf',[0.5 1 1.5]
+MF2='Versicolour':'trimf',[1.5 2 2.5]
+MF3='Virginica':'trimf',[2.5 3 3.5]
+
+[Rules]
+4 0 4 0, 3 (1) : 1
+4 0 2 4, 3 (1) : 1
+1 3 1 0, 1 (1) : 1
+0 0 1 0, 1 (1) : 1
+3 0 4 2, 3 (1) : 1
+3 1 3 4, 3 (1) : 1
+1 2 4 3, 3 (1) : 1
+0 3 3 4, 2 (1) : 1
